@@ -3,7 +3,7 @@ import { Button } from './components/ui/button'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import Products from './pages/products/Products';
-import Cart from './pages/cart/cart';
+import Cart from './pages/cart/Cart';
 import Lenis from 'lenis';
 import SingleProduct from './pages/products/SingleProduct';
 

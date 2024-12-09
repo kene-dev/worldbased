@@ -6,8 +6,14 @@ import close from '../../assets/cancel.svg';
 import cartImg from '../../assets/cartImg.png';
 import fav from "../../assets/favourite.svg";
 import CartItem from './CartItem';
+import { useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
 
 const Cart = () => {
+    const cart = useSelector(state => state.persistedReducer.cart);
+    const subtotal = cart ? cart.cartItems.reduce((total, item) => total + item.price * item.quantity, 0) : 0;
+    const shipping = 5000
+    const total = subtotal + shipping
   return (
     <section className='w-full h-full'>
         <Navbar />
@@ -21,9 +27,11 @@ const Cart = () => {
 
                         {/* SHOPPING CART DISPLAY AREA */}
                         <div className='w-full flex gap-10 flex-wrap'>
-                            {[1,2,3,4,5].map((_, i) => (
-                                <CartItem key={i} />
+                        <AnimatePresence>
+                            {cart.cartItems.map((item) => (
+                                <CartItem item={item}  key={item.id} />
                             ))}
+                        </AnimatePresence>
                         </div>
                         <hr className='bg-black/20 h-[0.15rem] mt-4'/>
                     </div>
@@ -34,16 +42,16 @@ const Cart = () => {
                             <h1>ORDER SUMMARY</h1>
                             <div className='w-full flex items-center justify-between mt-7 text-sm font-regular'>
                                 <p>Subtotal</p>
-                                <p>N 5000</p>
+                                <p>N {subtotal}</p>
                             </div>
                             <div className='w-full flex items-center justify-between text-sm font-regular'>
                                 <p>Shipping</p>
-                                <p>N 3000</p>
+                                <p>N {shipping}</p>
                             </div>
                             <hr className='bg-black/20 h-[0.15rem] my-6'/>
                             <div className='w-full flex items-center justify-between text-sm font-regular my-4'>
                                 <p className='text-lg font-regular'>TOTAL <span className='font-light text-sm'>(TAX INCL)</span></p>
-                                <p>N 8000</p>
+                                <p>N {total}</p>
                             </div>
                             <div className='w-full flex items-center gap-2 text-xs font-light my-10'>
                                 <input type='checkbox' />

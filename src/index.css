@@ -51,3 +51,31 @@ body {
 .noisyBg {
   background-image: url('./assets/noisyBg.svg');
 }
+
+.pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.pagination li {
+  margin: 0 5px;
+  
+}
+
+.pagination li a {
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 308px;
+  height: 39px;
+}
+
+.pagination li.active a {
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+}

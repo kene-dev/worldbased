@@ -2,7 +2,7 @@ import React from 'react'
 import menuIcon from "../assets/menu.svg";
 import sampleLogo from "../assets/wb.PNG"
 import favourite from "../assets/favourite.svg";
-import cart from "../assets/cart.svg";
+import cartImage from "../assets/cart.svg";
 import usr from "../assets/user.svg";
 import { Link } from 'react-router-dom';
 import {
@@ -10,8 +10,11 @@ import {
     SheetContent,
     SheetTrigger,
   } from "@/components/ui/sheet"
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+    const cart = useSelector(state => state.persistedReducer.cart);
+
   return (
     <div className='w-full h-[110px] noisyBg flex items-center justify-between lg:px-10 px-5 bg-white'>
         {/* LEFT SIDE */}
@@ -50,7 +53,12 @@ const Navbar = () => {
                 <Link className='flex items-center' to='/cart'>
                     <h1 className='lg:w-max lg:flex hidden px-4 p-3 text-white text-xs bg-black rounded-2xl'>Cart</h1>
                     <div className='bg-black p-[0.3rem] rounded-full w-max h-max -ml-1'>
-                        <img src={cart} className='p-2 bg-white rounded-full w-8 h-8 object-contain' />
+                        {cart?.cartItems?.length ? (
+                        <p className='bg-white rounded-full w-8 h-8 flex items-center justify-center'>{cart.cartItems.length}</p>
+                        ):(
+                        <img src={cartImage} className='p-2 bg-white rounded-full w-8 h-8 object-contain'/>
+                        )
+                    }
                     </div>
                 </Link>
             </div>

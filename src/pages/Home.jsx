@@ -30,7 +30,7 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
   return (
     <>
     <div ref={containerRef} className='w-full h-[200vh] relative'>
-        <motion.div style={{ scale: scale1, rotate: rotate1 }} className='w-full h-screen sticky noisyBg bg-white top-0 '>
+        <motion.div style={{ scale: scale1, rotate: rotate1 }} className='w-screen h-screen sticky noisyBg bg-white top-0 '>
             <Navbar />
             {/* TOP AREA OF HERO SECTION */}
             <div className=' w-full h-max my-10 lg:px-10 px-5 flex flex-col gap-4 xl:gap-16'>
@@ -50,13 +50,13 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
             </div>
 
             {/* BOTTOM AREA OF HERO SECTION */}
-            <div className='w-full h-[376px] flex items-start gap-8 lg:px-10 p-5'>
+            <div className='w-full lg:h-[376px] h-max flex flex-col lg:flex-row items-start gap-8 lg:px-10 p-5'>
 
-                <div className='w-[397px] h-full flex flex-col justify-between leading-snug'>
+                <div className='lg:w-[397px] h-full flex flex-col justify-between leading-snug'>
                     <div className='flex flex-col'>
                         <div>
-                            <h1 className='w-full text-[48px] font-extrabold'>TRENDY</h1>
-                            <h1 className='w-full text-[48px] font-extrabold'>COLLECTION</h1>
+                            <h1 className='w-full lg:text-[48px] text-2xl font-extrabold'>TRENDY</h1>
+                            <h1 className='w-full lg:text-[48px] text-2xl font-extrabold lg:mt-4'>COLLECTION</h1>
                         </div>
 
                         <div className='font-light'>
@@ -65,22 +65,27 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
                         </div>
                     </div>
 
-                    <Button className="w-max p-2 px-9 rounded-sm bg-[#d9d9d9] hover:bg-[#d9d9d9] text-black flex items-center gap-3">
+                    <Button className=" hidden w-max p-2 px-9 rounded-sm bg-[#d9d9d9] hover:bg-[#d9d9d9] text-black lg:flex items-center gap-3">
                         Go To Shop
                         <img src={arrow} className='' />
                     </Button>
                 </div>
 
-                <div className='hidden lg:flex  items-start justify-center xl:justify-start gap-[41px] xl:gap-3 flex-1 h-full w-full'>
-                    <div className='w-full xl:w-max h-[376px] xl:h-full '>
-                        <img src={prod1} className='object-cover h-full' />
+                <div className='flex flex-1 lg:flex-row flex-col items-start justify-center xl:justify-start gap-[41px] xl:gap-3 h-full w-full'>
+                    <div className='w-full xl:w-max lg:h-[376px] h-[300px] xl:h-full '>
+                        <img src={prod1} className='object-cover h-full w-full' />
                     </div>
 
-                    <div className='w-full xl:w-max h-[376px] xl:h-full'>
+                    <div className=' hidden lg:flex w-full xl:w-max lg:h-[376px] xl:h-full'>
                         <img src={prod2} className='object-cover h-full' />
                     </div>
                     
                 </div>
+
+                <Button className=" flex w-max p-2 px-9 rounded-sm bg-[#d9d9d9] hover:bg-[#d9d9d9] text-black lg:hidden items-center gap-3">
+                        Go To Shop
+                        <img src={arrow} className='' />
+                </Button>
             </div>
         </motion.div>
 

@@ -303,7 +303,7 @@ const Products = () => {
                         custom={index}
                         className=''
                         >
-                            <ProductItem image={item.productImages} title={item.productTitle} subText={item.productDesc} />
+                            <ProductItem image={item.productImages} title={item.productTitle} price={item.productPrice} id={item.productId} tags={item.productTags} />
                         </motion.div>
                       ))}
                       </AnimatePresence>

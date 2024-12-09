@@ -2,7 +2,7 @@ import Footer from '@/localComponents/Footer'
 import Navbar from '@/localComponents/Navbar'
 import React, { useEffect, useState } from 'react'
 import { FiSearch } from "react-icons/fi";
-import ProductItem from './productItem';
+import ProductItem from '../products/ProductItem';
 // import {productData} from "./data";
 import { IoIosArrowForward } from "react-icons/io";
 import {AnimatePresence, motion} from "framer-motion";

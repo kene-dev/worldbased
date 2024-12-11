@@ -1,6 +1,5 @@
 import React from 'react'
 import { AiOutlineHeart } from "react-icons/ai";
-import cartImg from '../../assets/cartImg.png';
 import { Link } from 'react-router-dom';
 
 const ProductItem = ({image, title, price, id, tags}) => {

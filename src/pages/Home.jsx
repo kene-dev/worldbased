@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Lenis from 'lenis';
 import Footer from '@/localComponents/Footer';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -30,10 +31,10 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
   return (
     <>
     <div ref={containerRef} className='w-full h-[200vh] relative'>
-        <motion.div style={{ scale: scale1, rotate: rotate1 }} className='w-screen h-screen sticky noisyBg bg-white top-0 '>
+        <motion.div style={{ scale: scale1, rotate: rotate1 }} className='w-screen lg:h-screen h-screen lg:sticky noisyBg bg-white top-0 '>
             <Navbar />
             {/* TOP AREA OF HERO SECTION */}
-            <div className=' w-full h-max my-10 lg:px-10 px-5 flex flex-col gap-4 xl:gap-16'>
+            <div className=' w-full h-max  lg:my-10 lg:px-10 px-5 flex flex-col gap-4 xl:gap-16'>
                 <div className='flex flex-col gap-1 lg:gap-3'>
                     <p>Men</p>
                     <p>Women</p>
@@ -50,7 +51,7 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
             </div>
 
             {/* BOTTOM AREA OF HERO SECTION */}
-            <div className='w-full lg:h-[376px] h-max flex flex-col lg:flex-row items-start gap-8 lg:px-10 p-5'>
+            <div className='w-full lg:h-[376px] h-fit flex flex-col lg:flex-row items-start lg:gap-8 gap-4 lg:px-10 p-5'>
 
                 <div className='lg:w-[397px] h-full flex flex-col justify-between leading-snug'>
                     <div className='flex flex-col'>
@@ -65,14 +66,16 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
                         </div>
                     </div>
 
-                    <Button className=" hidden w-max p-2 px-9 rounded-sm bg-[#d9d9d9] hover:bg-[#d9d9d9] text-black lg:flex items-center gap-3">
-                        Go To Shop
-                        <img src={arrow} className='' />
-                    </Button>
+                    <Link to='/products'>
+                        <Button className=" hidden w-max p-2 px-9 rounded-sm bg-[#d9d9d9] hover:bg-[#d9d9d9] text-black lg:flex items-center gap-3">
+                            Go To Shop
+                            <img src={arrow} className='' />
+                        </Button>
+                    </Link>
                 </div>
 
                 <div className='flex flex-1 lg:flex-row flex-col items-start justify-center xl:justify-start gap-[41px] xl:gap-3 h-full w-full'>
-                    <div className='w-full xl:w-max lg:h-[376px] h-[300px] xl:h-full '>
+                    <div className='w-full xl:w-max lg:h-[376px] h-[200px] xl:h-full '>
                         <img src={prod1} className='object-cover h-full w-full' />
                     </div>
 
@@ -81,11 +84,13 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
                     </div>
                     
                 </div>
-
-                <Button className=" flex w-max p-2 px-9 rounded-sm bg-[#d9d9d9] hover:bg-[#d9d9d9] text-black lg:hidden items-center gap-3">
-                        Go To Shop
-                        <img src={arrow} className='' />
-                </Button>
+                
+                <Link to='/products'>
+                    <Button className=" flex w-max p-2 px-9 rounded-sm bg-[#d9d9d9] hover:bg-[#d9d9d9] text-black lg:hidden items-center gap-3">
+                            Go To Shop
+                            <img src={arrow} className='' />
+                    </Button>
+                </Link>
             </div>
         </motion.div>
 
@@ -113,11 +118,12 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
                     </div>
                 </div>
             </div>
+
             <div className='w-full py-20 flex items-center justify-center'>
             <Button className="w-[200px] p-2 px-9 rounded-sm bg-[#d9d9d9] hover:bg-[#d9d9d9] text-black flex items-center gap-3">
                         See all
                         <img src={arrow} className='' />
-                    </Button>
+            </Button>
             </div>
         </motion.div>
         

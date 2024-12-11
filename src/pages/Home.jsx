@@ -1,5 +1,5 @@
 import Navbar from '@/localComponents/Navbar'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FiSearch } from "react-icons/fi";
 import prod1 from '../assets/heroImg1.png'
 import prod2 from '../assets/heroImg2.png';
@@ -28,10 +28,30 @@ const rotate1 = useTransform(scrollYProgress, [0, 1],[0, -5])
 const scale2 = useTransform(scrollYProgress, [0, 1],[0.7, 1])
 const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
 
+const [width, setWidth] = useState(window.innerWidth);
+
+useEffect(() => {
+  // Event listener to track window resizing
+  const handleResize = () => {
+    setWidth(window.innerWidth); // Update the width state on resize
+  };
+
+  // Add event listener on component mount
+  window.addEventListener('resize', handleResize);
+
+  // Clean up the event listener on component unmount
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+
+// You can now apply different styles based on the width
+const isMobile = width <= 768; // Example: mobile if width <= 768px
+
   return (
     <>
-    <div ref={containerRef} className='w-full h-[200vh] relative'>
-        <motion.div style={{ scale: scale1, rotate: rotate1 }} className='w-screen lg:h-screen h-screen lg:sticky noisyBg bg-white top-0 '>
+    <div ref={containerRef} className='w-full lg:h-[200vh] h-full relative'>
+        <motion.div style={{ scale: !isMobile && scale1 , rotate: !isMobile && rotate1 }} className='w-screen lg:h-screen min-h-screen lg:sticky noisyBg bg-white top-0 '>
             <Navbar />
             {/* TOP AREA OF HERO SECTION */}
             <div className=' w-full h-max  lg:my-10 lg:px-10 px-5 flex flex-col gap-4 xl:gap-16'>
@@ -96,7 +116,7 @@ const rotate2 = useTransform(scrollYProgress, [0, 1],[-4, 0])
 
 
         {/* SECOND HALF OF HOME PAGE */}
-        <motion.div style={{scale: scale2, rotate: rotate2}} className='w-full min-h-screen noisyBg relative bg-white px-5'>
+        <motion.div style={{scale: !isMobile && scale2, rotate: !isMobile && rotate2}} className='w-full min-h-screen noisyBg relative bg-white px-5'>
             <div className='h-full max-w-screen-2xl mx-auto flex flex-col gap-20'>
                 <div className='flex flex-col gap-6'>
                     <h1 className='text-[48px] font-bold text-center pt-8'>Our Approach to fashion design </h1>

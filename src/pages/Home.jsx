@@ -50,8 +50,8 @@ const isMobile = width <= 768; // Example: mobile if width <= 768px
 
   return (
     <>
-    <div ref={containerRef} className='w-full lg:h-[200vh] h-full relative'>
-        <motion.div style={{ scale: !isMobile && scale1 , rotate: !isMobile && rotate1 }} className='w-screen lg:h-screen min-h-screen lg:sticky noisyBg bg-white top-0 '>
+    <div ref={containerRef} className='w-full h-[200vh] relative'>
+        <motion.div style={{ scale: scale1 , rotate: rotate1 }} className='w-screen h-screen sticky noisyBg bg-white top-0 '>
             <Navbar />
             {/* TOP AREA OF HERO SECTION */}
             <div className=' w-full h-max  lg:my-10 lg:px-10 px-5 flex flex-col gap-4 xl:gap-16'>
@@ -116,7 +116,7 @@ const isMobile = width <= 768; // Example: mobile if width <= 768px
 
 
         {/* SECOND HALF OF HOME PAGE */}
-        <motion.div style={{scale: !isMobile && scale2, rotate: !isMobile && rotate2}} className='w-full min-h-screen noisyBg relative bg-white px-5'>
+        <motion.div style={{scale: scale2, rotate: rotate2}} className='w-full min-h-screen noisyBg relative bg-white px-5'>
             <div className='h-full max-w-screen-2xl mx-auto flex flex-col gap-20'>
                 <div className='flex flex-col gap-6'>
                     <h1 className='text-[48px] font-bold text-center pt-8'>Our Approach to fashion design </h1>
